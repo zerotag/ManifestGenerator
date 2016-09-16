@@ -7,8 +7,8 @@ import java.util.Calendar;
 
 public class Start {
 	
-	private static Calendar					CAL = Calendar.getInstance();
-	private static final SimpleDateFormat	SDF = new SimpleDateFormat("HH:mm:ss");
+	private static Calendar CAL = Calendar.getInstance();
+	private static final SimpleDateFormat SDF = new SimpleDateFormat("HH:mm:ss");
 	
 	public static void main(String[] args) throws InterruptedException, InvocationTargetException {
 		boolean debug = false;

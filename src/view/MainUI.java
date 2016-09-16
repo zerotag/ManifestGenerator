@@ -1,5 +1,6 @@
 package view;
 
+import com.zerotag.utils.BackgroundWorker;
 import engine.GeneratorWorker;
 import engine.MonitorWorker;
 import java.awt.Component;
@@ -11,8 +12,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public class MainUI extends javax.swing.JFrame {
-	
-	private static final com.zerotag.deprecated.ErrorHandler ERRHANDLER = com.zerotag.deprecated.ErrorHandler.getInstance();
 	
 	private static boolean MONITOR_FLAG = false;
 	private static MonitorWorker MONITOR;
@@ -68,7 +67,7 @@ public class MainUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manifest Generator");
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/icon.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imgs/icon.png")));
         setMinimumSize(new java.awt.Dimension(500, 350));
         setResizable(false);
 
@@ -197,7 +196,7 @@ public class MainUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(srcOpt3))
                     .addComponent(generatorProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(10, 10, 10))
         );
         appBodyLayout.setVerticalGroup(
             appBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +230,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(generatorProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(generateBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(generateBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -267,7 +266,7 @@ public class MainUI extends javax.swing.JFrame {
         );
         appWorkerLayout.setVerticalGroup(
             appWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(appWorkerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+            .addComponent(appWorkerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
         );
 
         appFrame.add(appWorker, "card2");
@@ -307,7 +306,7 @@ public class MainUI extends javax.swing.JFrame {
 	}
 	
 	public final void unlockUI(){
-		MONITOR.addMessage(Start.getTime(), " GUI Unlocked and Resetted");
+		MONITOR.addMessage(Start.getTime(), " GUI Unlocked and Reset");
 		resetUI();
 		for (Component compt : appBody.getComponents()){
 			compt.setEnabled(true);
@@ -350,7 +349,7 @@ public class MainUI extends javax.swing.JFrame {
 		try {
 			new GeneratorWorker(this, generateBTN, generatorProgressBar, sourceFolder.getText(), targetFolder.getText()).execute();
 		} catch ( Exception e ) {
-			MainUI.getMonitor().addMessage(Start.getTime(), "[FATAL-ERROR] " + ERRHANDLER.getStackTrace(e));
+			MainUI.getMonitor().addMessage(Start.getTime(), "[FATAL-ERROR] " + BackgroundWorker.getStackTrace(e));
 		}
     }//GEN-LAST:event_generateBTNActionPerformed
 
