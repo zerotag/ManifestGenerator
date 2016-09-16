@@ -11,11 +11,20 @@ public class Start {
 	private static final SimpleDateFormat	SDF = new SimpleDateFormat("HH:mm:ss");
 	
 	public static void main(String[] args) throws InterruptedException, InvocationTargetException {
-		MonitorWorker monitor = new MonitorWorker();
-		monitor.execute();
-		MainUI.addMonitor(monitor);
+		boolean debug = false;
+		for (String arg : args) {
+			if (arg.equals("-debug")) {
+				debug = true;
+			}
+		}
 		
-		MainUI mainUI = MainUI.run(false);
+		if (debug) {
+			MonitorWorker monitor = new MonitorWorker();
+			monitor.execute();
+			MainUI.addMonitor(monitor);
+		}
+		
+		MainUI mainUI = MainUI.run(debug);
 		mainUI.setVisible(true);
 	}
 	
