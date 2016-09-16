@@ -54,7 +54,9 @@ public class GeneratorWorker extends SwingWorker<String, Double> {
 		Generator generator = gen;
 		
 		int maxNumber = generator.countPath();
-		MainUI.getMonitor().addMessage(Start.getTime(), "[GENERATOR] Source folder contains <" + maxNumber + "> files");
+		if (MainUI.hasMonitor()) {
+			MainUI.getMonitor().addMessage(Start.getTime(), "[GENERATOR] Source folder contains <" + maxNumber + "> files");
+		}
 		
 		Thread.sleep(1000);
 		changeUI("GENERATING MANIFEST");
@@ -63,7 +65,10 @@ public class GeneratorWorker extends SwingWorker<String, Double> {
 		Thread.sleep(1000);
 		changeUI("WRITING TO FILE");
 		gen.writeToFile(data);
-		MainUI.getMonitor().addMessage(Start.getTime(), "[GENERATOR] Written to file <" + target + Generator.getFilename() + ">");
+		
+		if (MainUI.hasMonitor()) {
+			MainUI.getMonitor().addMessage(Start.getTime(), "[GENERATOR] Written to file <" + target + Generator.getFilename() + ">");
+		}
 		
 		Thread.sleep(1000);
 		changeUI("DONE");
@@ -84,7 +89,9 @@ public class GeneratorWorker extends SwingWorker<String, Double> {
 		try {
 			this.finalize();
 		} catch (Throwable ex) {
-			MainUI.getMonitor().addMessage(Start.getTime(), "[FATAL-ERROR] Thread FINALIZE method FAILED! at <" + this.getClass().getSimpleName() + ">");
+			if (MainUI.hasMonitor()) {
+				MainUI.getMonitor().addMessage(Start.getTime(), "[FATAL-ERROR] Thread FINALIZE method FAILED! at <" + this.getClass().getSimpleName() + ">");
+			}
 		}
 	}
 	

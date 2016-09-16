@@ -297,8 +297,14 @@ public class MainUI extends javax.swing.JFrame {
 		return MONITOR;
 	}
 	
+	public static final boolean hasMonitor() {
+		return MONITOR_FLAG;
+	}
+	
 	public final void lockUI(){
-		MONITOR.addMessage(Start.getTime(), " GUI Locked");
+		if (MONITOR_FLAG) {
+			MONITOR.addMessage(Start.getTime(), " GUI Locked");
+		}
 		for (Component compt : appBody.getComponents()){
 			compt.setEnabled(false);
 		}
@@ -306,7 +312,9 @@ public class MainUI extends javax.swing.JFrame {
 	}
 	
 	public final void unlockUI(){
-		MONITOR.addMessage(Start.getTime(), " GUI Unlocked and Reset");
+		if (MONITOR_FLAG) {
+			MONITOR.addMessage(Start.getTime(), " GUI Unlocked and Reset");
+		}
 		resetUI();
 		for (Component compt : appBody.getComponents()){
 			compt.setEnabled(true);
@@ -349,7 +357,9 @@ public class MainUI extends javax.swing.JFrame {
 		try {
 			new GeneratorWorker(this, generateBTN, generatorProgressBar, sourceFolder.getText(), targetFolder.getText()).execute();
 		} catch ( Exception e ) {
-			MainUI.getMonitor().addMessage(Start.getTime(), "[FATAL-ERROR] " + BackgroundWorker.getStackTrace(e));
+			if (MONITOR_FLAG) {
+				MainUI.getMonitor().addMessage(Start.getTime(), "[FATAL-ERROR] " + BackgroundWorker.getStackTrace(e));
+			}
 		}
     }//GEN-LAST:event_generateBTNActionPerformed
 
