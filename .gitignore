@@ -1,5 +1,7 @@
-/src/imgs/icon.png
-/nbproject
+/build/
+/dist/
+/nbproject/
+/src/imgs/
 /README.md
 /build.xml
 /manifest.mf
