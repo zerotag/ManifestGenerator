@@ -394,7 +394,7 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_srcOpt1ActionPerformed
 
     private void srcOpt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srcOpt2ActionPerformed
-		// Option 3 ( "C:\A Galeria" )
+		// Option 2 ( "C:\A Galeria" )
 		sourceFolder.setText( "C:\\A Galeria\\" );
 		sourceFolder.setBorder( SUCCESS_BORDER );
     }//GEN-LAST:event_srcOpt2ActionPerformed
@@ -412,7 +412,7 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_tarOpt1ActionPerformed
 
     private void tarOpt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarOpt2ActionPerformed
-        // Option 3 ( "C:\A Galeria" )
+        // Option 2 ( "C:\A Galeria" )
 		targetFolder.setText( "C:\\A Galeria\\" );
 		targetFolder.setBorder( SUCCESS_BORDER );
     }//GEN-LAST:event_tarOpt2ActionPerformed
