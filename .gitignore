@@ -1,5 +1,6 @@
 /build/
 /dist/
+/store/
 /nbproject/
 /src/imgs/
 /build.xml
