@@ -11,7 +11,7 @@ It also includes a debug monitor if executed through the console (java -jar comm
 
 # Update
 
-It uses a small lib that I made, so it isn't included here, but it is compiled together in the store folder.
+~~It uses a small lib that I made, so it isn't included here, but it is compiled together in the store folder.~~
 
 # Update 06/12/2018
 
