@@ -7,7 +7,7 @@ the manifest.
 
 This is my first software, so don't mind my obvious errors.
 
-It also includes a debug monitor if executed through the console (java -jar command)
+~~It also includes a debug monitor if executed through the console (java -jar command)~~
 
 # Update
 
@@ -16,3 +16,4 @@ It also includes a debug monitor if executed through the console (java -jar comm
 # Update 06/12/2018
 
 It no longer uses any external libs (even handmade), just simple producer/consumer stuff.
+The debug monitor has been moved to a sidebar. (It will no longer display, if executed directly through the console)
